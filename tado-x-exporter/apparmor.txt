@@ -34,7 +34,7 @@ profile tado_x_exporter flags=(attach_disconnected,mediate_deleted) {
     #include <abstractions/base>
 
     # Receive signals from S6-Overlay
-    signal (receive) peer=*tado_x_exporter,
+    signal (receive) peer=*_tado_x_exporter,
 
     # Access to options.json and other files within your addon
     /data/** rw,
