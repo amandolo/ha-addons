@@ -4,9 +4,7 @@ FROM $BUILD_FROM
 
 # Execute during the build of the image
 ARG TEMPIO_VERSION BUILD_ARCH
-RUN \
-    curl -sSLf -o /usr/bin/tempio \
-    "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${BUILD_ARCH}"
+RUN curl -sSLf -o /usr/bin/tempio "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${BUILD_ARCH}"
 
 # Copy root filesystem
 COPY rootfs /
@@ -14,4 +12,5 @@ COPY rootfs /
 RUN apk add --no-cache python3 && \
     python3 -m venv /app/.venv && \
     . /app/.venv/bin/activate && \
-    pip install --no-cache-dir -r /app/requirements.txt
+    pip install --no-cache-dir -r /app/requirements.txt && \
+    chmod a+x /etc/services.d/tado_x_exporter/* /usr/bin/tado_x_exporter
