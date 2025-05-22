@@ -7,4 +7,4 @@ export TADO_EXPORTER_PORT=$(bashio::config 'tado_exporter_port')
 export TADO_EXPORTER_REFRESH_RATE=$(bashio::config 'tado_exporter_refresh_rate')
 
 echo "Running server..."
-python3 /app/main.py
+exec python3 /app/main.py
