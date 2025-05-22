@@ -12,4 +12,4 @@ RUN \
 COPY rootfs /
 
 RUN apk add --no-cache python3 py3-pip && \
-    pip install --no-cache-dir -r requirements.txt
+    pip install --no-cache-dir -r /app/requirements.txt
