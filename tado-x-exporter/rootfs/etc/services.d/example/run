@@ -1,19 +1,22 @@
 #!/usr/bin/with-contenv bashio
-# ==============================================================================
-# Start the example service
-# s6-overlay docs: https://github.com/just-containers/s6-overlay
-# ==============================================================================
 
 # Add your code here
 
 # Declare variables
-declare message
+declare tado_username
+declare tado_password
+declare tado_token_file_path
+declare tado_exporter_port
+declare tado_exporter_refresh_rate
 
-## Get the 'message' key from the user config options.
-message=$(bashio::config 'message')
+tado_username=$(bashio::config 'tado_username')
+tado_password=$(bashio::config 'tado_password')
+tado_token_file_path=$(bashio::config 'tado_token_file_path')
+tado_exporter_port=$(bashio::config 'tado_exporter_port')
+tado_exporter_refresh_rate=$(bashio::config 'tado_exporter_refresh_rate')
 
-## Print the message the user supplied, defaults to "Hello World..."
-bashio::log.info "${message:="Hello World..."}"
+
+bashio::log.info "${tado_token_file_path:="/xxx/ttt"}"
 
 ## Run your program
 exec /usr/bin/tado_x_exporter

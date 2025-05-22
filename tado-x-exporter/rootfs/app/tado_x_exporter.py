@@ -8,7 +8,7 @@ if __name__ == '__main__':
     # Start up the server to expose the metrics.
     username = environ["TADO_USERNAME"]
     password = environ["TADO_PASSWORD"]
-    exporter_port = int(environ.get("TADO_EXPORTER_PORT", 8181))
+    exporter_port = int(environ.get("TADO_EXPORTER_PORT", 8080))
     # 3 minutes seems the default tado app value
     refresh_rate = int(environ.get("TADO_EXPORTER_REFRESH_RATE", 180))
     token_file_path = environ.get("TADO_TOKEN_FILE_PATH", "/tmp/tado_token")

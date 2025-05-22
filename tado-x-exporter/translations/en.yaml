@@ -1,4 +1,19 @@
 configuration:
-  message:
-    name: Message
-    description: The message that will be printed to the log when starting this example add-on.
+  tado_username:
+    name: Tado username
+    description: Your Tado account username
+  tado_password:
+    name: Tado password
+    description: Your Tado account password
+  tado_token_file_path:
+    name: OAUTH2 persistent token file path
+    description: The file path to store your OAUTH2 token, to avoid device re-validation.
+  tado_exporter_port:
+    name: Exporter port
+    description: The port to expose the metrics
+  tado_exporter_refresh_rate:
+    name: Exporter refresh rate
+    description: The refresh rate of the metrics
+
+network:
+  8080/TCP: The exporter port ???
