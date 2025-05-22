@@ -1,7 +1,7 @@
 name: "Tado X Exporter"
 description: "A simple Prometheus exporter for Tado X systems"
 url: "https://github.com/amandolo/ha-addons/tree/main/tado-x-exporter"
-version: "0.0.1"
+version: "0.0.2"
 slug: "tado_x_exporter"
 init: false
 arch:
