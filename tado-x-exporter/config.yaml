@@ -19,3 +19,4 @@ schema:
 image: "ghcr.io/home-assistant/{arch}-addon-example" # TODO: change it
 ports:
   8080/tcp: 8080
+
