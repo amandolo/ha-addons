@@ -1,0 +1,21 @@
+name: "Tado X Exporter"
+description: "A simple Prometheus exporter for Tado X systems"
+url: "https://github.com/amandolo/ha-addons/tree/main/tado-x-exporter"
+version: "1.0.0"
+slug: "tado_x_exporter"
+init: false
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+map:
+  - share:rw
+options:
+  message: "Hello world..."
+schema:
+  message: "str?"
+image: "ghcr.io/home-assistant/{arch}-addon-example" # TODO: change it
+ports:
+  8080/tcp: 8080
