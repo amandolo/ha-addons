@@ -8,7 +8,7 @@ This repository contains some super useful add-ons.
 
 This repository contains the following add-ons
 
-### [Tado X Exporter](./tado-x-exporter)
+### [Tado X Metrics Exporter](tado-x-metrics-exporter)
 
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]

@@ -1,6 +1,0 @@
-#!/bin/bash
-
-env
-
-. /app/.venv/bin/activate
-python3 /app/tado_x_exporter.py

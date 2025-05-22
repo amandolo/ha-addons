@@ -16,4 +16,4 @@ configuration:
     description: The refresh rate of the metrics
 
 network:
-  8080/TCP: The exporter port ???
+  8087/TCP: The port to expose the metrics

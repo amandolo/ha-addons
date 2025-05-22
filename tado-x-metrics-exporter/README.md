@@ -1,4 +1,4 @@
-# Home Assistant Add-on: Tado X Exporter
+# Home Assistant Add-on: Tado X Metrics Exporter
 
 _A simple Prometheus exporter for Tado X metrics (zone temperature/humidity/heating)._
 

@@ -1,15 +1,16 @@
-name: "Tado X Exporter"
-description: "A simple Prometheus exporter for Tado X systems"
-url: "https://github.com/amandolo/ha-addons/tree/main/tado-x-exporter"
-version: "0.0.2"
-slug: "tado_x_exporter"
+name: "Tado X Metrics Exporter"
+description: "A simple Prometheus exporter for Tado X APIs"
+
+url: "https://github.com/amandolo/ha-addons/tree/main/tado-x-metrics-exporter"
+version: "0.0.1"
+slug: "tado_x_metrics_exporter"
 init: false
 arch:
   - aarch64
-#  - armhf
-#  - armv7
-#  - amd64
-#  - i386
+  - armhf
+  - armv7
+  - amd64
+  - i386
 options:
   tado_username: ""
   tado_password: ""
@@ -22,7 +23,6 @@ schema:
   tado_token_file_path: "str"
   tado_exporter_port: "port"
   tado_exporter_refresh_rate: "int"
-image: "ghcr.io/amandolo/{arch}-ha-addon-tado-x-exporter-test"
+image: "ghcr.io/amandolo/ha-addon-tado-x-metrics-exporter-{arch}"
 ports:
-  8080/tcp: 8080
-
+  8089/tcp: 8089
