@@ -4,14 +4,11 @@ from prometheus_client import start_http_server, Gauge
 
 from PyTado.interface.interface import Tado
 
-# print("sleeping...")
-# sleep(300)
-
 if __name__ == '__main__':
     # Start up the server to expose the metrics.
     username = environ["TADO_USERNAME"]
     password = environ["TADO_PASSWORD"]
-    exporter_port = int(environ.get("TADO_EXPORTER_PORT", 8080))
+    exporter_port = int(environ.get("TADO_EXPORTER_PORT", 8989))
     refresh_rate = int(environ.get("TADO_EXPORTER_REFRESH_RATE", 60))
     token_file_path = environ.get("TADO_TOKEN_FILE_PATH", "/data/oauth_refresh_token")
 

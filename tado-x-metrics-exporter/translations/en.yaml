@@ -8,12 +8,9 @@ configuration:
   tado_token_file_path:
     name: OAUTH2 persistent token file path
     description: The file path to store your OAUTH2 token, to avoid device re-validation.
-  tado_exporter_port:
-    name: Exporter port
-    description: The port to expose the metrics
   tado_exporter_refresh_rate:
     name: Exporter refresh rate
     description: The refresh rate of the metrics
 
 network:
-  8087/TCP: The port to expose the metrics
+  8989/TCP: The port to expose the exporter metrics
