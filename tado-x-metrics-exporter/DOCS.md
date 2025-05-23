@@ -17,7 +17,6 @@ Example configuration:
 ```yaml
 TADO_USERNAME: your_tado_email@example.com
 TADO_PASSWORD: your_tado_password
-TADO_EXPORTER_PORT: 8080
 TADO_EXPORTER_REFRESH_RATE: 180
 ```
 
@@ -27,21 +26,21 @@ Your Tado account email address.
 ### Option: `TADO_PASSWORD` (required)
 Your Tado account password.
 
-### Option: `TADO_EXPORTER_PORT` (optional)
-The port where the exporter will serve metrics. Default: 8080
-
 ### Option: `TADO_EXPORTER_REFRESH_RATE` (optional)
 How often to refresh data from Tado API, in seconds. Default: 180 (3 minutes)
 
 ## How it works
 
-After starting, the add-on connects to the Tado API and begins collecting metrics from your Tado system. It exposes the following metrics:
+After starting, the add-on connects to the Tado API and begins collecting metrics from your Tado system.
+At the first start you have to complete the OAUTH2 verification, you find the URL in the logs.
+It exposes the following metrics:
 
-- `tado_sensor_temperature_value`: Temperature readings from each zone
+- `tado_sensor_temperature_value_celsius`: Temperature readings from each zone
+- `tado_setting_temperature_value_celsius`: Temperature setting from each zone
 - `tado_sensor_humidity_percentage`: Humidity readings from each zone
 - `tado_activity_heating_power_percentage`: Heating power percentage for each zone
 
-These metrics are available at `http://add-on-hostname:8080/metrics` for scraping by Prometheus.
+These metrics are available at `http://add-on-hostname:8989/metrics` for scraping by Prometheus.
 
 ## Integration with Prometheus
 
@@ -52,7 +51,7 @@ To collect these metrics with Prometheus, add the following to your Prometheus c
 scrape_configs:
   - job_name: 'tado'
     static_configs:
-      - targets: ['your-home-assistant:8080']
+      - targets: ['your-home-assistant:8989']
 ```
 
 ## Troubleshooting
