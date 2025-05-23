@@ -49,7 +49,7 @@ if __name__ == '__main__':
         try:
             for zone in tado.get_zone_states():
                 temp.labels(str(zone['name'])).set(zone['sensorDataPoints']['insideTemperature']['value'])
-                temp_setting.labels(str(zone['name'])).set(zone['setting']['temperature'])
+                temp_setting.labels(str(zone['name'])).set(zone['setting']['temperature']['value'] if zone['setting']['temperature'] else 0)
                 humi.labels(str(zone['name'])).set(zone['sensorDataPoints']['humidity']['percentage'])
                 heat.labels(str(zone['name'])).set(zone['heatingPower']['percentage'])
         except:
