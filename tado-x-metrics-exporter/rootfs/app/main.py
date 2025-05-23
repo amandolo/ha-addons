@@ -34,6 +34,9 @@ if __name__ == '__main__':
     temp = Gauge('tado_sensor_temperature_value', 'Temperature as read by the sensor',
                   labelnames=['zone'],
                   unit='celsius')
+    temp_setting = Gauge('tado_setting_temperature_value', 'Temperature configured in the zone',
+                 labelnames=['zone'],
+                 unit='celsius')
     humi = Gauge('tado_sensor_humidity_percentage', 'Humidity as read by the sensor',
                   labelnames=['zone'],
                   unit='percentage')
@@ -46,6 +49,7 @@ if __name__ == '__main__':
         try:
             for zone in tado.get_zone_states():
                 temp.labels(str(zone['name'])).set(zone['sensorDataPoints']['insideTemperature']['value'])
+                temp_setting.labels(str(zone['name'])).set(zone['setting']['temperature'])
                 humi.labels(str(zone['name'])).set(zone['sensorDataPoints']['humidity']['percentage'])
                 heat.labels(str(zone['name'])).set(zone['heatingPower']['percentage'])
         except:
