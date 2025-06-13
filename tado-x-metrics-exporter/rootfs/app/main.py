@@ -14,38 +14,40 @@ if __name__ == '__main__':
 
     print("Starting tado exporter")
     start_http_server(exporter_port)
-    print("Connecting to tado API using account " + username)
-    try:
-        tado = Tado(token_file_path=token_file_path)
-        status = tado.device_activation_status()
-        if status == "PENDING":
-            url = tado.device_verification_url()
-            print("Please complete login at URL: " + url)
-            tado.device_activation()
-            status = tado.device_activation_status()
-        if status == "COMPLETED":
-            print("Login successful")
-        else:
-            print(f"Login status is {status}")
-    except KeyError:
-        print("Authentication failed. Check your username, password or client secret.")
-        exit(1)
 
     temp = Gauge('tado_sensor_temperature_value', 'Temperature as read by the sensor',
-                  labelnames=['zone'],
-                  unit='celsius')
+                 labelnames=['zone'],
+                 unit='celsius')
     temp_setting = Gauge('tado_setting_temperature_value', 'Temperature configured in the zone',
                  labelnames=['zone'],
                  unit='celsius')
     humi = Gauge('tado_sensor_humidity_percentage', 'Humidity as read by the sensor',
-                  labelnames=['zone'],
-                  unit='percentage')
+                 labelnames=['zone'],
+                 unit='percentage')
     heat = Gauge('tado_activity_heating_power_percentage', 'Heating power',
-                  labelnames=['zone'],
-                  unit='percentage')
+                 labelnames=['zone'],
+                 unit='percentage')
 
     print("Exporter ready")
+    print("Connecting to tado API using account " + username)
+
     while True:
+        try:
+            tado = Tado(token_file_path=token_file_path)
+            status = tado.device_activation_status()
+            if status == "PENDING":
+                url = tado.device_verification_url()
+                print("Please complete login at URL: " + url)
+                tado.device_activation()
+                status = tado.device_activation_status()
+            if status == "COMPLETED":
+                print("Login successful / refreshed")
+            else:
+                print(f"Login status is {status}")
+        except KeyError:
+            print("Authentication failed. Check your username, password or client secret.")
+            exit(1)
+
         try:
             for zone in tado.get_zone_states():
                 temp.labels(str(zone['name'])).set(zone['sensorDataPoints']['insideTemperature']['value'])

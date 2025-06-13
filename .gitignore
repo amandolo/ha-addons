@@ -1,1 +1,3 @@
 options.json
+*.local
+oauth_token

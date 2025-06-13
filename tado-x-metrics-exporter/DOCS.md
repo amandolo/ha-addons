@@ -26,8 +26,14 @@ Your Tado account email address.
 ### Option: `TADO_PASSWORD` (required)
 Your Tado account password.
 
+### Option: `TADO_EXPORTER_PORT` (optional)
+The exporter port. Default: 8989
+
 ### Option: `TADO_EXPORTER_REFRESH_RATE` (optional)
 How often to refresh data from Tado API, in seconds. Default: 180 (3 minutes)
+
+### Option: `TADO_TOKEN_FILE_PATH` (optional)
+The path to save the OAuth2 refresh_token. Default: /data/oauth_refresh_token
 
 ## How it works
 

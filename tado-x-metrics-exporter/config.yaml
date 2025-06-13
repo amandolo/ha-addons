@@ -2,7 +2,7 @@ name: "Tado X Metrics Exporter"
 description: "A simple Prometheus exporter for Tado X APIs"
 
 url: "https://github.com/amandolo/ha-addons/tree/main/tado-x-metrics-exporter"
-version: "0.0.2"
+version: "0.0.3"
 slug: "tado_x_metrics_exporter"
 init: false
 arch:
