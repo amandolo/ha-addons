@@ -1,4 +1,4 @@
-from os import environ
+from os import environ, remove
 from time import sleep
 from prometheus_client import start_http_server, Gauge
 
@@ -35,6 +35,10 @@ if __name__ == '__main__':
         try:
             tado = Tado(token_file_path=token_file_path)
             status = tado.device_activation_status()
+            if status == "NOT_STARTED":
+                remove(token_file_path)
+                tado = Tado(token_file_path=token_file_path)
+                status = tado.device_activation_status()
             if status == "PENDING":
                 url = tado.device_verification_url()
                 print("Please complete login at URL: " + url)

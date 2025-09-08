@@ -1,3 +1,7 @@
+## 0.0.4
+
+- Improve refresh_token renewal process, to avoid issues when it's expired
+
 ## 0.0.3
 
 - Refresh login every data fetch, to avoid client disconnection issues
