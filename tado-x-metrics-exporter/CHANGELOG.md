@@ -1,3 +1,7 @@
+## 0.0.5
+
+- Reduce login calls, once per run
+
 ## 0.0.4
 
 - Improve refresh_token renewal process, to avoid issues when it's expired
